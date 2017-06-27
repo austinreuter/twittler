@@ -27,11 +27,11 @@ var randomElement = function(array){
 };
 
 // random tweet generator
-var opening = ['just', '', '', '', '', 'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the president', 'that wizard', 'a ninja', 'a seedy old man'];
-var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'installed', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'computed'];
-var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the big', 'a new form of'];
-var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'money', 'way of life', 'belief system', 'security system', 'bad decision', 'future', 'life', 'pony', 'mind'];
-var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', ''];
+var opening = ['just', '', '', '', '', '', 'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'today i', 'last night i', 'the president', 'bae and i', 'some norwegian', 'a seedy old man', 'a very small reptile', 'strong forces'];
+var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'instantiated', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'drank', 'thizzed', 'twerked'];
+var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the dopest', 'a new form of', 'around the', 'far from the', 'a bagged', 'on top of a'];
+var nouns = ['cat', 'koolaid', 'system', 'city', 'bug', 'cloud', 'homeless', 'money', 'way of life', 'emu', 'belief system', 'security system', 'bad decision', 'future', 'life', 'poverty', 'mind', 'covfefe', 'dime', 'infatuation', 'militia'];
+var tags = ['#techlife', '#burningman', '#sf', 'but thankfully only i know how', 'for real', '#fritzInDistress', '#ballin', '#omg', '#whereismydog', '#magic', 'yes, talk is cheap', '#thankmelater', '#versace', '#deep', '', '', '', '', '', ''];
 
 var randomMessage = function(){
   return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');

@@ -4,6 +4,7 @@
     <title>Twittler&copy;</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href ="stylesheet.css"></link>
     
   </head>
   <body>
@@ -12,72 +13,86 @@
       $(document).ready(function(){
        
         var $button = $('.button')
-
         var $intro = $('#intro');
         $intro.html('Welcome to the TwittlerVerse');
+
         $intro.on('mouseover', function() {
           $(this).css({color: 'grey'});
         });
         $intro.on('mouseleave', function() {
           $(this).css({color: 'black'});
         });
-
-
-        function showUser(user) {
-          use = streams.home[user];
-          
-          //for each tweet;
-          var tweet = tweets[index];
-          tweet.user;
-          //delete all others
-          //append your own tweets;
-
-
-        }
-        console.log(tweets)
-        
- 
-        function showTweets(tweets) {
-          var $tweets = $('#tweets');
-          //$tweets.html('');
-      
-          var index = tweets.length - 1;
-          var numTweets = 0;
-          while(index >= 0){
-            var tweet = tweets[index];
-            var $tweet = $('<div><span class="user"></span><span class="message"></span><span class="time"></span></div>');
-      
-            $tweet.find('.user').text('@' + tweet.user + ' : ');
-            $tweet.find('.message').text(tweet.message);
-            $tweet.find('.time').text(tweet.created_at)
-            $tweet.appendTo($tweets);
-      
-            index -= 1;
-          }
-        };
-        function refreshFeed () {
-          $button.text('Refresh Feed');
-          showTweets(streams.home);
-        };
-
-        refreshFeed()
-        setInterval(refreshFeed, Math.random()*1000)
-
         $button.on('mouseover',  function() {
           $(this).css({color: 'grey'});
         });
         $button.on('mouseleave', function() {
           $(this).css({color: 'black'});
         })
-
         
-    
-  
+        function showTweets(tweets) {
+          var $tweets = $('#tweets');
+          $tweets.html('');
+      
+          var index = tweets.length - 1;
+     
+          while(index >= 0){
+            var tweet = tweets[index];
+            var $tweet = $('<div class="margin"><span class="user"></span><span class="message"></span><span class="time"></span></div>');
+
+            $tweet.find('.user').text('@' + tweet.user + ' : ');
+            $tweet.find('.message').text(tweet.message + ' ');
+            $tweet.find('.time').text(tweet.created_at)
+            $tweet.appendTo($tweets);
+            index -= 1;
+          }
+        };
+
+        function refreshFeed () {
+          $button.text('Refresh Feed');
+          showTweets(streams.home);
+        };
+
+        function refreshUser(user) {
+          $button.text('home');
+          showTweets(streams.users[user]);
+        }
+
+        refreshFeed()
+
+        /*setInterval(refreshFeed, Math.random()*7000)
+        $('.button').on('click', refreshFeed)*/
+       
+        $('.button').on('click', refreshFeed)
+        
+        function findUser(text) {
+          var space = text.indexOf(' ');
+          return text.slice(1, space);
+        }
+        $('#tweets').on('click', '.margin .user', function(event) {
+          var use = $(this).text()
+          use = findUser(use);
+         
+          var userTweets = streams.home.filter(function(tweet) {
+            return tweet.user === use;
+          })
+
+          showTweets(userTweets)
+        })  
+
+        $('#tweets').on('mouseover', '.margin .user', function() {
+          $(this).css({color: 'grey'})
+        })
+        $('#tweets').on('mouseleave', '.margin .user', function() {
+          $(this).css({color: 'black'})
+        })
+
       })
 
     </script>
 
-    <div id= 'intro'> </div>
+    <div id= 'intro'> 
+      <div class= 'border'></div>
+    </div>
     <div class="button"> </div>
     <div id= 'tweets'> </div>
 
