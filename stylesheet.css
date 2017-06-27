@@ -20,19 +20,18 @@
   margin: right;
   font-family: helvetica;
   border: 1px solid grey;
-  float: right;
+  
   
 }
-#tweets .cont .user {
-  font-weight: bold;
-  float: left;
-}
-/*#tweets .cont .message {
-	float: left;
-}*/
+
 #tweets .cont .time {
 
   font-family: Comic Sans MS;
   font-size: small;
+  font-style: italic;
   float: right;
+}
+#tweets .cont .user {
+  font-weight: bold;
+  float: left;
 }
