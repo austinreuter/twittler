@@ -4,23 +4,30 @@
     <title>Twittler&copy;</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="jquery.timeago.js"></script>
+
     <link rel="stylesheet" href ="stylesheet.css"></link>
     
   </head>
   <body>
     <script> 
 
-      $(document).ready(function(){
-       
+      $(document).ready(function() {
+        
+      
         var $button = $('.button')
         var $intro = $('#intro');
         $intro.html('Welcome to the TwittlerVerse');
+        $intro.css({color: 'white'})
 
+        $intro.on('click', function() {
+          document.location.href="";
+        })
         $intro.on('mouseover', function() {
-          $(this).css({color: 'grey'});
+          $(this).css({color: 'grey', 'text-shadow': '-1px 1px white'});
         });
         $intro.on('mouseleave', function() {
-          $(this).css({color: 'black'});
+          $(this).css({color: 'white', 'text-shadow': '1px 1px grey'});
         });
         $button.on('mouseover',  function() {
           $(this).css({color: 'grey'});
@@ -37,11 +44,11 @@
      
           while(index >= 0){
             var tweet = tweets[index];
-            var $tweet = $('<div class="margin"><span class="user"></span><span class="message"></span><span class="time"></span></div>');
+            var $tweet = $('<div class="cont"><span class="user"></span><span class="message"></span><span class="time"></span></div>');
 
             $tweet.find('.user').text('@' + tweet.user + ' : ');
             $tweet.find('.message').text(tweet.message + ' ');
-            $tweet.find('.time').text(tweet.created_at)
+            $tweet.find('.time').text($.timeago(tweet.created_at))
             $tweet.appendTo($tweets);
             index -= 1;
           }
@@ -68,7 +75,7 @@
           var space = text.indexOf(' ');
           return text.slice(1, space);
         }
-        $('#tweets').on('click', '.margin .user', function(event) {
+        $('#tweets').on('click', '.cont .user', function(event) {
           var use = $(this).text()
           use = findUser(use);
          
@@ -79,22 +86,30 @@
           showTweets(userTweets)
         })  
 
-        $('#tweets').on('mouseover', '.margin .user', function() {
+        $('#tweets').on('mouseover', '.cont .user', function() {
           $(this).css({color: 'grey'})
         })
-        $('#tweets').on('mouseleave', '.margin .user', function() {
+        $('#tweets').on('mouseleave', '.cont .user', function() {
           $(this).css({color: 'black'})
         })
 
+        $('#tweets').on('mouseover', '.cont .time', function() {
+          $(this).css({color: 'white'})
+        })
+        $('#tweets').on('mouseleave', '.cont .time', function() {
+          $(this).css({color: 'black'})
+        })
+
+        
       })
 
     </script>
 
-    <div id= 'intro'> 
-      <div class= 'border'></div>
-    </div>
-    <div class="button"> </div>
+    <div id= 'intro'> </div>
+    <div class='button'> </div>
+    <div class='hello'>
     <div id= 'tweets'> </div>
+    </div>
 
   </body>
 </html>
