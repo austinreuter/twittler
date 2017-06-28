@@ -11,14 +11,14 @@
     <script> 
       $(document).ready(function() {
          
-        var $button = $('.button')
+        var $button = $('.button');
         var $intro = $('#intro');
         $intro.html('Welcome to Twittler');
-        $intro.css({color: 'white'})
+        $intro.css({color: 'white'});
 
         $intro.on('click', function() {
           document.location.href="";
-        })
+        });
         $intro.on('mouseover', function() {
           $(this).css({color: 'grey', 'text-shadow': '-1px 1px white'});
         });
@@ -30,7 +30,7 @@
         });
         $button.on('mouseleave', function() {
           $(this).css({color: 'black', 'text-shadow': 'none'});
-        })
+        });
 
         function showTweets(tweets) {
           var $tweets = $('#tweets');
@@ -55,46 +55,46 @@
           $button.text('Refresh Feed');
           showTweets(streams.home);
         };
-        refreshFeed()
+        refreshFeed();
        
-        $('.button').on('click', refreshFeed)
+        $('.button').on('click', refreshFeed);
                
         function findUser(text) {
           var space = text.indexOf(' ');
           return text.slice(1, space);
         }
         $('#tweets').on('click', '.cont .user', function(event) {
-          var use = $(this).text()
+          var use = $(this).text();
           use = findUser(use);
          
           var userTweets = streams.home.filter(function(tweet) {
             return tweet.user === use;
-          })
-          showTweets(userTweets)
-        })  
+          });
+          showTweets(userTweets);
+        });
   
         $('#tweets').on('mouseover', '.cont', function() {
-          $(this).css({'background': '#F0F8FF', 'border-bottom': '1px solid grey'})
-        })
+          $(this).css({'background': '#F0F8FF', 'border-bottom': '1px solid grey'});
+        });
         $('#tweets').on('mouseleave', '.cont', function() {
-          $(this).css({'background': 'none', 'border-bottom': 'none'})
-        })
+          $(this).css({'background': 'none', 'border-bottom': 'none'});
+        });
 
         $('#tweets').on('mouseover', '.cont .user', function() {
-          $(this).css({color: 'grey', 'text-shadow': '1px 1px 1px white', 'text-decoration': 'underline'})
-        })
+          $(this).css({color: 'grey', 'text-shadow': '1px 1px 1px white', 'text-decoration': 'underline'});
+        });
         $('#tweets').on('mouseleave', '.cont .user', function() {
-          $(this).css({color: 'black', 'text-shadow': 'none', 'text-decoration': 'none'})
-        })
+          $(this).css({color: 'black', 'text-shadow': 'none', 'text-decoration': 'none'});
+        });
 
         $('#tweets').on('mouseover', '.cont .time', function() {
-          $(this).css({color: 'white', 'text-shadow': '1px 1px 4px grey'})
-        })
+          $(this).css({color: 'white', 'text-shadow': '1px 1px 4px grey'});
+        });
         $('#tweets').on('mouseleave', '.cont .time', function() {
-          $(this).css({color: 'black', 'text-shadow': 'none'})
-        })
+          $(this).css({color: 'black', 'text-shadow': 'none'});
+        });
 
-      })
+      });
     </script>
 
     <div id= 'intro'> </div>
