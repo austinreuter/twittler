@@ -1,31 +1,28 @@
 #intro {
   font-family: helvetica;
-  padding: 10;
-  text-shadow: 1px 1px grey;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  text-shadow: 1px 1px 4px grey;
   text-align: center;
   font-size: 24px;
   background: #F0F8FF;
-
+  box-shadow: 1px 1px 4px grey;
 }
-
 .button {
-  padding-bottom: 1px;
+  padding-bottom: 7px;
   padding-left: 1px;
-  padding-top: 10px;
+  padding-top: 13px;
   font-family: Comic Sans MS;
-
 }
 #tweets {
-  padding: 1px 1px 1px 1px;
+  padding: 10px 10px 10px 10px;
   margin: right;
   font-family: helvetica;
-  border: 1px solid grey;
-  
-  
+  border: 3px solid #F0F8FF;
+  box-shadow: -5px -1px 5px grey;
 }
 
 #tweets .cont .time {
-
   font-family: Comic Sans MS;
   font-size: small;
   font-style: italic;
@@ -33,5 +30,8 @@
 }
 #tweets .cont .user {
   font-weight: bold;
-  float: left;
+  float: center;
+}
+#tweets .cont .space {
+  opacity: 0;
 }
