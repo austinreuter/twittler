@@ -31,7 +31,7 @@
         $button.on('mouseleave', function() {
           $(this).css({color: 'black', 'text-shadow': 'none'});
         })
-        
+
         function showTweets(tweets) {
           var $tweets = $('#tweets');
           $tweets.html('');
@@ -73,19 +73,27 @@
           showTweets(userTweets)
         })  
   
+        $('#tweets').on('mouseover', '.cont', function() {
+          $(this).css({'background': '#F0F8FF', 'border-bottom': '1px solid grey'})
+        })
+        $('#tweets').on('mouseleave', '.cont', function() {
+          $(this).css({'background': 'none', 'border-bottom': 'none'})
+        })
+
         $('#tweets').on('mouseover', '.cont .user', function() {
-          $(this).css({color: 'grey'})
+          $(this).css({color: 'grey', 'text-shadow': '1px 1px 1px white', 'text-decoration': 'underline'})
         })
         $('#tweets').on('mouseleave', '.cont .user', function() {
-          $(this).css({color: 'black'})
+          $(this).css({color: 'black', 'text-shadow': 'none', 'text-decoration': 'none'})
         })
 
         $('#tweets').on('mouseover', '.cont .time', function() {
-          $(this).css({color: 'white', 'text-shadow': '1px 1px 3px grey'})
+          $(this).css({color: 'white', 'text-shadow': '1px 1px 4px grey'})
         })
         $('#tweets').on('mouseleave', '.cont .time', function() {
           $(this).css({color: 'black', 'text-shadow': 'none'})
         })
+
       })
     </script>
 
